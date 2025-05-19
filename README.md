@@ -1,8 +1,8 @@
 # 📄 Gitignore CLI
 
-A handy command-line tool to quickly fetch and create `.gitignore` files for your project, directly from the terminal — using the official GitHub `.gitignore` templates.
+A handy command-line tool to quickly fetch and create `.gitignore` files for your project, directly from the terminal — using the official GitHub [`github/gitignore`](https://github.com/github/gitignore) templates.
 
-![Go Version](https://img.shields.io/badge/Go-1.20+-blue?logo=go)
+![Go Version](https://img.shields.io/badge/Go-1.24+-blue?logo=go)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey)
 
@@ -10,11 +10,11 @@ A handy command-line tool to quickly fetch and create `.gitignore` files for you
 
 ## ✨ Features
 
-- 🔍 Search for available `.gitignore` templates
-- 📄 Download `.gitignore` files for specific languages or frameworks
-- ➕ Append or overwrite `.gitignore` content easily
-- 🌍 Uses GitHub’s official [gitignore repository](https://github.com/github/gitignore)
-- ⚙️ Minimal dependencies, blazing fast
+- 🔍 Search for available `.gitignore` templates from GitHub
+- 📄 Download multiple templates in one command
+- ➕ Merge multiple `.gitignore` types into one file
+- 🧠 Intelligent template name escaping (e.g. C++, VisualStudio)
+- ⚙️ Minimal and fast — only one dependency (`golang.org/x/net/html`)
 
 ---
 
@@ -23,7 +23,7 @@ A handy command-line tool to quickly fetch and create `.gitignore` files for you
 ### Option 1: Go Install (recommended)
 
 ```bash
-go install github.com/hadzicni/gitignore-cli@latest
+go install github.com/hadzicni/gitignore-cli/cmd/gitignore@latest
 ```
 
 Make sure `$GOPATH/bin` is in your `$PATH`.
@@ -32,8 +32,8 @@ Make sure `$GOPATH/bin` is in your `$PATH`.
 
 ```bash
 git clone https://github.com/hadzicni/gitignore-cli.git
-cd gitignore-cli
-go build -o gitignore ./cmd/gitignore
+cd gitignore-cli/cmd/gitignore
+go build -o gitignore
 ```
 
 ---
@@ -41,17 +41,15 @@ go build -o gitignore ./cmd/gitignore
 ## 🚀 Usage
 
 ```bash
-gitignore [flags] [template-name]
+gitignore [flags] <template>[,<template>...]
 ```
 
 ### Available Flags
 
-| Flag               | Description                                        | Example                         |
-|--------------------|----------------------------------------------------|----------------------------------|
-| `--list`, `-l`     | List available gitignore templates                 | `gitignore -l`                  |
-| `--append`, `-a`   | Append to existing .gitignore instead of overwrite | `gitignore -a go`               |
-| `--output`, `-o`   | Specify output path (default: .gitignore)          | `gitignore -o .gitignore.dev`   |
-| `--help`, `-h`     | Show help message                                  | `gitignore -h`                  |
+| Flag           | Description                                 | Example                              |
+|----------------|---------------------------------------------|--------------------------------------|
+| `--list`       | List available gitignore templates          | `gitignore --list`                   |
+| `--output`, `-o` | Specify output file name (default: `.gitignore`) | `gitignore -o .gitignore.dev go,python` |
 
 ---
 
@@ -63,13 +61,13 @@ Create a `.gitignore` for Go:
 gitignore go
 ```
 
-Append Python rules to existing file:
+Merge multiple templates:
 
 ```bash
-gitignore -a python
+gitignore node,react,linux
 ```
 
-List all supported templates:
+List available templates:
 
 ```bash
 gitignore --list
@@ -78,47 +76,15 @@ gitignore --list
 Write to a custom file:
 
 ```bash
-gitignore -o .gitignore.custom node
-```
-
----
-
-## 🧪 Development
-
-Run the CLI locally:
-
-```bash
-go run ./cmd/gitignore
-```
-
-Run tests:
-
-```bash
-go test ./...
-```
-
----
-
-## 📁 Project Structure
-
-```
-.
-├── cmd/
-│   └── gitignore/       # CLI command logic
-├── internal/
-│   └── fetcher/         # Template fetching logic
-├── go.mod               # Go module file
-├── LICENSE              # License file
-└── README.md            # Project readme
+gitignore -o my.gitignore rust,java
 ```
 
 ---
 
 ## 👨‍💻 Author
 
-Made with ❤️ by **Nikola Hadzic**
-
-- GitHub: [@hadzicni](https://github.com/hadzicni)
+Made with ❤️ by **Nikola Hadzic**  
+GitHub: [@hadzicni](https://github.com/hadzicni)
 
 ---
 
