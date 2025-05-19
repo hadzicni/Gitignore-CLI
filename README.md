@@ -83,7 +83,7 @@ gitignore -o my.gitignore rust,java
 
 ## 👨‍💻 Author
 
-Made with ❤️ by **Nikola Hadzic**  
+Made by **Nikola Hadzic**  
 GitHub: [@hadzicni](https://github.com/hadzicni)
 
 ---
