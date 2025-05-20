@@ -28,7 +28,17 @@ go install github.com/hadzicni/gitignore-cli/cmd/gitignore@latest
 
 Make sure `$GOPATH/bin` is in your `$PATH`.
 
-### Option 2: Manual Build
+### Option 2: Manual Build (Windows, Linux, macOS)
+
+#### 🪟 Windows (PowerShell oder CMD)
+
+```powershell
+git clone https://github.com/hadzicni/gitignore-cli.git
+cd gitignore-cli\cmd\gitignore
+go build -o gitignore.exe
+```
+
+#### 🐧 Linux / 🍏 macOS
 
 ```bash
 git clone https://github.com/hadzicni/gitignore-cli.git
@@ -46,9 +56,9 @@ gitignore [flags] <template>[,<template>...]
 
 ### Available Flags
 
-| Flag           | Description                                 | Example                              |
-|----------------|---------------------------------------------|--------------------------------------|
-| `--list`       | List available gitignore templates          | `gitignore --list`                   |
+| Flag             | Description                                      | Example                                 |
+| ---------------- | ------------------------------------------------ | --------------------------------------- |
+| `--list`         | List available gitignore templates               | `gitignore --list`                      |
 | `--output`, `-o` | Specify output file name (default: `.gitignore`) | `gitignore -o .gitignore.dev go,python` |
 
 ---
@@ -91,4 +101,3 @@ GitHub: [@hadzicni](https://github.com/hadzicni)
 ## 📄 License
 
 This project is licensed under the Apache License 2.0. See the [LICENSE](./LICENSE) file for details.
-
