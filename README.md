@@ -20,7 +20,7 @@ A handy command-line tool to quickly fetch and create `.gitignore` files for you
 
 ## 📦 Installation
 
-### Option 1: Go Install (recommended)
+### Option 1: Go Install
 
 ```bash
 go install github.com/hadzicni/gitignore-cli/cmd/gitignore@latest
