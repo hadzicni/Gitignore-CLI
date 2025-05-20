@@ -1,4 +1,4 @@
-module github.com/hadzicni/gitignore-cli
+module gitignore-cli
 
 go 1.24.3
 
